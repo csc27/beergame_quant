@@ -124,7 +124,7 @@ user_role = st.sidebar.selectbox(
     help="Enter Canvas Group Number first. Role will lock after your first message.",
 )
 
-selected_mode = "BeerGameQualitative"
+selected_mode = "BeerGameQuantitative"
 system_prompt = MODEL_CONFIGS[selected_mode]["prompt"]
 
 STRUCTURED_RESPONSE_KEYS = [
@@ -275,7 +275,7 @@ def save_conversation_to_gcp(messages_to_save, mode_key: str, pid: str, role: st
         safe_role = sanitize_for_filename(role)
         safe_section = sanitize_for_filename(section)
 
-        file_name = f"beergame_qualitative_{safe_section}_P{safe_pid}_{safe_role}_{end_time_str}.csv"
+        file_name = f"beergame_quantitative_{safe_section}_P{safe_pid}_{safe_role}_{end_time_str}.csv"
         local_path = os.path.join(created_files_path, file_name)
 
         chat_history_df.to_csv(local_path, index=False)
@@ -308,7 +308,7 @@ def save_structured_response_to_gcp(
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
 
         file_name = (
-            f"beergame_qualitative_structured_{safe_section}_P{safe_pid}_{safe_role}_{timestamp}.json"
+            f"beergame_quantitative_structured_{safe_section}_P{safe_pid}_{safe_role}_{timestamp}.json"
         )
         local_path = os.path.join(created_files_path, file_name)
 
