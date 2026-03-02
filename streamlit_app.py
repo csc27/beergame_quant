@@ -63,8 +63,8 @@ credentials_dict["private_key"] = credentials_dict["private_key"].replace("\\n",
 
 try:
     credentials = Credentials.from_service_account_info(credentials_dict)
-    client = storage.Client(credentials=credentials, project="beer-game-488600")
-    bucket = client.get_bucket("beergame1")
+    client = storage.Client(credentials=credentials, project="radiant-moon-488919-k4")
+    bucket = client.get_bucket("beergame-cc-streamlit")
 except Exception as exc:
     st.error(f"GCP setup failed: {exc}")
     st.stop()
